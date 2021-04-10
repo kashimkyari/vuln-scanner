@@ -1,3 +1,55 @@
-# Nmap 7.91 scan initiated Thu Apr  8 21:26:05 2021 as: nmap -Pn -iL targets.txt -oN targets-port-data.txt --stats-every 0.5s
-WARNING: No targets were specified, so 0 hosts scanned.
-# Nmap done at Thu Apr  8 21:26:05 2021 -- 0 IP addresses (0 hosts up) scanned in 0.05 seconds
+# Nmap 7.91 scan initiated Sat Apr 10 23:30:49 2021 as: nmap -Pn -iL targets.txt -oN targets-port-data.txt --stats-every 0.5s
+Failed to resolve "(192.168.12.2)".
+Failed to resolve "(192.168.12.128)".
+Failed to resolve "(192.168.12.128)".
+Nmap scan report for 192.168.12.1
+Host is up (0.0015s latency).
+Not shown: 991 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+443/tcp  open  https
+445/tcp  open  microsoft-ds
+808/tcp  open  ccproxy-http
+902/tcp  open  iss-realsecure
+912/tcp  open  apex-mesh
+6646/tcp open  unknown
+9001/tcp open  tor-orport
+MAC Address: 00:50:56:C0:00:08 (VMware)
+
+Nmap scan report for 192.168.12.129
+Host is up (0.0044s latency).
+Not shown: 977 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+23/tcp   open  telnet
+25/tcp   open  smtp
+53/tcp   open  domain
+80/tcp   open  http
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+512/tcp  open  exec
+513/tcp  open  login
+514/tcp  open  shell
+1099/tcp open  rmiregistry
+1524/tcp open  ingreslock
+2049/tcp open  nfs
+2121/tcp open  ccproxy-ftp
+3306/tcp open  mysql
+5432/tcp open  postgresql
+5900/tcp open  vnc
+6000/tcp open  X11
+6667/tcp open  irc
+8009/tcp open  ajp13
+8180/tcp open  unknown
+MAC Address: 00:0C:29:5B:B4:CE (VMware)
+
+Nmap scan report for 192.168.12.254
+Host is up (0.00032s latency).
+All 1000 scanned ports on 192.168.12.254 are filtered
+MAC Address: 00:50:56:F6:05:1F (VMware)
+
+Failed to resolve "(192.168.12.128)".
+# Nmap done at Sat Apr 10 23:30:55 2021 -- 3 IP addresses (3 hosts up) scanned in 6.52 seconds

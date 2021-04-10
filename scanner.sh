@@ -4,15 +4,16 @@
 #sudo apt install nmap -y
 
 #Run simple nmap to check for live host between ip range 0-200 on 10.0.0.0
-#nmap -sn 10.0.0.0/24 > targets.txt
+#nmap -sn $NTWRKADDR > targets.txt
 
 # nmap flag references:
 # -PP: nmap will send ICMP timestamp request (type 13) and expects ICMP timestamp replies (type 14).
 # -sP/-sn: means no port scan and this flag will skips port discovery.
-# nmap -sP -PP 10.0.0.28
+# nmap -sP -PP $NTWRKADDR
 # added -PP flag for better network host discovery
 
 # Static Variables
+NTWRKADDR=192.168.12.0/24
 LIVEHOSTS=$(wc -l < targets.txt) # check for targets from last scan
 MAIN_MENU=("Network/Recon" "eXploits" "Vulnerability Report")
 NETWORKING_MENU=("Scan Network" "Show Live Hosts" "Scan Ports" "Display Port Data")
@@ -68,7 +69,7 @@ progress_bar () {
 		[8][5-9]) echo -ne "[#################___]" ;;
 		[9][0-4]) echo -ne "[##################__]" ;;
 		[9][5-9]) echo -ne "[###################_]" ;;
-		100|100) echo -ne "[####################]" ;;
+		100|00) echo -ne "[####################]" ;;
 		*) echo -ne "Entry $1 did not match any cases!!!\n";;
 		esac)
 	printf "$output ($1%%)\r"
@@ -76,7 +77,7 @@ progress_bar () {
 
 scan_network () {
 	printf "Starting network scan....\n"
-	nmap -sn -PP 192.168.100.0/24 > targets-full.txt && cat targets-full.txt | grep report | awk '{print $(NF)}' | sort -V > targets.txt
+	nmap -sn -PP $NTWRKADDR > targets-full.txt && cat targets-full.txt | grep report | awk '{print $(NF)}' | sort -V > targets.txt
     LIVEHOSTS=$(wc -l < targets.txt)
     printf "Network scan done. Found $LIVEHOSTS live hosts.\n\n"
 }
@@ -239,7 +240,7 @@ TEST
 			HOLDER=${HOLDER::-4}
 			progress_bar $HOLDER
 		fi
-	done < <(nmap --script scripts/nmap-vulners/vulners.nse -sV 10.0.0.0/24 -oN vulnReport.txt --stats-every 0.5s)
+	done < <(nmap --script scripts/nmap-vulners/vulners.nse -sV $NTWRKADDR -oN vulnReport.txt --stats-every 0.5s)
 	clear
 	cat vulnReport.txt
 	# nmap -Pn -iL targets.txt -oN targets-port-data.txt --stats-every 0.5s

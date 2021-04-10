@@ -1,2 +1,16 @@
-Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-09 10:40 +04
-Nmap done: 256 IP addresses (0 hosts up) scanned in 52.71 seconds
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-10 23:30 +04
+Nmap scan report for 192.168.12.1
+Host is up (0.0021s latency).
+MAC Address: 00:50:56:C0:00:08 (VMware)
+Nmap scan report for _gateway (192.168.12.2)
+Host is up (0.00039s latency).
+MAC Address: 00:50:56:EC:95:FE (VMware)
+Nmap scan report for 192.168.12.129
+Host is up (0.00085s latency).
+MAC Address: 00:0C:29:5B:B4:CE (VMware)
+Nmap scan report for 192.168.12.254
+Host is up (0.00054s latency).
+MAC Address: 00:50:56:F6:05:1F (VMware)
+Nmap scan report for ubuntu-virtual-machine (192.168.12.128)
+Host is up.
+Nmap done: 256 IP addresses (5 hosts up) scanned in 2.04 seconds
