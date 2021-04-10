@@ -1,0 +1,1 @@
+# Nmap 7.91 scan initiated Fri Apr  9 03:29:13 2021 as: nmap --script scripts/nmap-vulners/vulners.nse -sV -oN vulnReport.txt --stats-every 0.5s 10.0.0.0/24
